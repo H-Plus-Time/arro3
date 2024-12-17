@@ -137,6 +137,9 @@ jobs:
       - run: uv python dir
       - run: uv python find 3.13
       - run: uv tool install maturin
+      - run: echo $UV_TOOL_DIR >> $GITHUB_PATH
+      - run: echo $UV_BIN_DIR >> $GITHUB_PATH
+      - run: which maturin
       - name: Check maturin
         uses: PyO3/maturin-action@v1
         with:
