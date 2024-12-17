@@ -142,6 +142,12 @@ jobs:
       - run: echo $UV_TOOL_DIR >> $GITHUB_PATH
       - run: echo $UV_BIN_DIR >> $GITHUB_PATH
       - run: which maturin
+      # Explicitly, and quite deliberately, shove the uv python dirs
+      # into the PATH 😠
+      - run: ls $(uv python dir)/cpython-3.13.0-windows-x86_64-none
+      - run: ls $(uv python dir)/cpython-3.13.0-windows-x86_64-none/Scripts
+      - run: echo $(uv python dir)/cpython-3.13.0-windows-x86_64-none/Scripts >> $GITHUB_PATH
+      - run: echo $(uv python dir)/cpython-3.13.0+freethreaded-windows-x86_64-none/Scripts >> $GITHUB_PATH
       # - uses: Quansight-Labs/setup-python@v5
       #   with:
       #     python-version: |
