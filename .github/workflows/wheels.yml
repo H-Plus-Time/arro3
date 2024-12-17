@@ -140,11 +140,6 @@ jobs:
       - run: echo $UV_TOOL_DIR >> $GITHUB_PATH
       - run: echo $UV_BIN_DIR >> $GITHUB_PATH
       - run: which maturin
-      - name: Check maturin
-        uses: PyO3/maturin-action@v1
-        with:
-          command: list-python
-          args: -vvv
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
