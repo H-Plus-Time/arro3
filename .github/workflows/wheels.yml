@@ -120,8 +120,8 @@ jobs:
             target: x64
         module:
           - arro3-core
-          - arro3-compute
-          - arro3-io
+          # - arro3-compute
+          # - arro3-io
     steps:
       - uses: actions/checkout@v4
 
@@ -130,10 +130,12 @@ jobs:
         with:
           enable-cache: true
           version: "0.4.x"
+          python-version: "3.13"
 
       - name: Install Python versions
         run: uv python install 3.9 3.10 3.11 3.12 3.13 pypy3.10 3.13t
-
+      - run: uv python dir
+      - run: uv python find 3.13
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
