@@ -113,6 +113,8 @@ jobs:
 
   windows:
     runs-on: ${{ matrix.platform.runner }}
+    env:
+      UV_PYTHON_INSTALL_DIR: C:\hostedtoolcache\windows\Python\
     strategy:
       matrix:
         platform:
