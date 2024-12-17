@@ -136,6 +136,11 @@ jobs:
         run: uv python install 3.9 3.10 3.11 3.12 3.13 pypy3.10 3.13t
       - run: uv python dir
       - run: uv python find 3.13
+      - name: Check maturin
+        uses: PyO3/maturin-action@v1
+        with:
+          command: list-python
+          args: -vvv
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
